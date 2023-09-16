@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors Game</title>
+    <link rel="stylesheet" href="nav.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            /* color: azure; */
+        }
+        body{
+            /* background-color: antiquewhite; */
+            background:url(ue-logo-1400x788-1400x788-8f185e1e3635.jpg);
+            background-size: cover;
+            
+
+
+        }
+        h1{
+            color: aliceblue;
+        }
+        p{ color: aliceblue;}
+        video{
+            position: absolute;
+    top: 0;
+    left: 0;
+            z-index: -1;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <a href=""><li> manu</li></a>
+        <a href=""><li>view</li></a>
+        <a href=""><Li>arcade</Li></a>
+        <a href=""><li>image</li></a>
+        <a href=""><li>from</li></a>
+        <a href="game .html"><li>game</li></a>
+        <input type="search" id="search" placeholder="search" height="100px" >
+        <a href="https://www.unrealengine.com/">
+        <button id="search">search</button></a>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <h1>Rock, Paper, Scissors Game</h1>
+    <p>Choose your move:</p>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <p id="result"></p>
+
+    <script>
+        const choices = ["rock", "paper", "scissors"];
+
+        function computerChoice() {
+            const randomIndex = Math.floor(Math.random() * 3);
+            return choices[randomIndex];
+        }
+
+        function play(playerChoice) {
+            const computer = computerChoice();
+            const resultDisplay = document.getElementById("result");
+
+            if (playerChoice === computer) {
+                resultDisplay.textContent = "It's a tie!";
+            } else if (
+                (playerChoice === "rock" && computer === "scissors") ||
+                (playerChoice === "paper" && computer === "rock") ||
+                (playerChoice === "scissors" && computer === "paper")
+            ) {
+                resultDisplay.textContent = `You win! Computer chose ${computer}.`;
+            } else {
+                resultDisplay.textContent = `You lose! Computer chose ${computer}.`;
+            }
+        }
+
+        document.getElementById("rock").addEventListener("click", () => play("rock"));
+        document.getElementById("paper").addEventListener("click", () => play("paper"));
+        document.getElementById("scissors").addEventListener("click", () => play("scissors"));
+    </script>
+    <a href="mario.html">
+    <button id="button">game</button></a>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quibusdam veniam, suscipit,
+         facilis ad rem esse quidem laboriosam repellat expedita quasi similique velit magnam fugiat corrupti delectus molestiae minima doloremque.
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima error, modi nesciunt animi illo ipsa labore molestias? Odio quisquam fugiat eius deserunt non consequatur, maiores omnis vero deleniti aspernatur, optio aperiam excepturi sunt dignissimos, quam numquam qui quia dolor sapiente officiis iusto natus nulla nisi. Deleniti provident tempore sapiente voluptatem. Nostrum a soluta perspiciatis quae ratione odio sunt fugit explicabo vitae voluptas! Fugit ipsam, optio aspernatur perferendis voluptate ea eaque odit aliquam ut, saepe reiciendis dolore nobis harum. Sunt velit minima culpa ipsum assumenda enim aperiam molestiae.
+          Rem quae ratione nulla magni praesentium iure totam voluptatem voluptates blanditiis laboriosam! Veritatis?
+    </p>
+    <video src="My Video2.mp4" autoplay preload="auto" loop playsinline  muted></video>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+    <iframe src="footer.html" width="100%"></iframe>
+</body>
+</html>

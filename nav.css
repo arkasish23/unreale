@@ -1,0 +1,32 @@
+.nav{
+background-color: aliceblue;
+
+
+
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    float: left;
+}
+a {
+    display: block;
+    color: #f5eded;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+
+
+
+
+.nav li{
+    margin-right: 10px;
+
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario-like Platformer Game</title>
+    <link rel="stylesheet" href="body.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            background-color: #5c94fc;
+        }
+        
+       </style>
+</head>
+<body>
+    
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const mario = {
+            x: 50,
+            y: 300,
+            width: 32,
+            height: 32,
+            dx: 0,
+            dy: 0,
+            speed: 5,
+            jumping: false,
+            jumpPower: 10,
+        };
+
+        const ground = {
+            x: 0,
+            y: 350,
+            width: canvas.width,
+            height: 20,
+        };
+
+        function drawMario() {
+            ctx.fillStyle = "#ff0000";
+            ctx.fillRect(mario.x, mario.y, mario.width, mario.height);
+        }
+
+        function drawGround() {
+            ctx.fillStyle = "#008000";
+            ctx.fillRect(ground.x, ground.y, ground.width, ground.height);
+        }
+
+        function gameLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGround();
+            drawMario();
+
+            // Gravity simulation
+            if (mario.y < ground.y - mario.height || mario.jumping) {
+                mario.dy += 0.5;
+                mario.y += mario.dy;
+            }
+
+            // Jumping
+            if (mario.y >= ground.y - mario.height && mario.jumping) {
+                mario.jumping = false;
+                mario.dy = 0;
+            }
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowRight") {
+                mario.dx = mario.speed;
+            } else if (event.key === "ArrowLeft") {
+                mario.dx = -mario.speed;
+            } else if (event.key === "ArrowUp" && !mario.jumping) {
+                mario.jumping = true;
+                mario.dy = -mario.jumpPower;
+            }
+        });
+
+        document.addEventListener("keyup", (event) => {
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+                mario.dx = 0;
+            }
+        });
+
+        gameLoop();
+    </script>
+   
+</body>
+</html>
